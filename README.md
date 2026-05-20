@@ -1,4 +1,4 @@
-# Resolvia — Landing
+# Opervia — Landing
 
 Proyecto: Landing page para negocio freelance de servicios tecnológicos (Next.js + Tailwind).
 
@@ -11,4 +11,4 @@ npm run dev
 
 Notas:
 - Actualiza el número de WhatsApp en `config.js`.
-- El formulario es un placeholder; conecta con una API o servicio de envío.
+- Configura las variables SMTP para enviar formularios al correo de contacto.

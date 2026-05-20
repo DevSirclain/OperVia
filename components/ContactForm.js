@@ -11,10 +11,40 @@ const inputClass = "p-3 rounded-lg border border-gray-200 bg-white text-sm focus
 
 export default function ContactForm() {
   const [status, setStatus] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    setStatus('Gracias. Te responderemos con una evaluación inicial y próximos pasos.')
+    setLoading(true)
+    setStatus(null)
+
+    const formData = new FormData(e.currentTarget)
+    const payload = {
+      nombre: formData.get('nombre')?.toString().trim(),
+      empresa: formData.get('empresa')?.toString().trim(),
+      email: formData.get('email')?.toString().trim(),
+      telefono: formData.get('telefono')?.toString().trim(),
+      necesidad: formData.get('necesidad')?.toString().trim(),
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        throw new Error('No se pudo enviar el formulario.')
+      }
+
+      e.currentTarget.reset()
+      setStatus({ type: 'success', message: 'Gracias. Te responderemos con una evaluación inicial y próximos pasos.' })
+    } catch (_error) {
+      setStatus({ type: 'error', message: 'No pudimos enviar tu solicitud por ahora. Escríbenos por WhatsApp o correo.' })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -49,8 +79,14 @@ export default function ContactForm() {
             />
           </div>
           <div className="col-span-1 sm:col-span-2 flex items-center gap-4 flex-wrap">
-            <button type="submit" className="btn btn-accent px-6 py-3">Solicitar diagnóstico</button>
-            {status && <p className="text-sm text-green-600 font-medium">{status}</p>}
+            <button type="submit" disabled={loading} className="btn btn-accent px-6 py-3 disabled:opacity-70 disabled:cursor-not-allowed">
+              {loading ? 'Enviando...' : 'Solicitar diagnóstico'}
+            </button>
+            {status && (
+              <p className={`text-sm font-medium ${status.type === 'error' ? 'text-red-600' : 'text-green-600'}`}>
+                {status.message}
+              </p>
+            )}
           </div>
         </form>
       </div>

@@ -6,7 +6,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
       <div className="container flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="font-bold text-xl text-accent tracking-tight">Resolvia</span>
+          <span className="font-bold text-xl text-accent tracking-tight">Opervia</span>
           <span className="hidden sm:block text-xs text-gray-400 border-l border-gray-200 pl-2.5 ml-0.5">Soluciones tecnológicas para negocios</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">

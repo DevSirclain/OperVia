@@ -12,14 +12,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Resolvia | Soluciones tecnológicas para negocios</title>
+        <title>Opervia | Soluciones tecnológicas para negocios</title>
         <meta name="description" content="Soporte web, automatización de procesos y soluciones tecnológicas para empresas que necesitan rapidez, continuidad y resultados." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Resolvia | Soluciones tecnológicas para negocios" />
+        <meta property="og:title" content="Opervia | Soluciones tecnológicas para negocios" />
         <meta property="og:description" content="Soporte web, automatización de procesos y soluciones tecnológicas para empresas que necesitan rapidez, continuidad y resultados." />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Resolvia" />
+        <meta property="og:site_name" content="Opervia" />
       </Head>
       <Header />
       <main>

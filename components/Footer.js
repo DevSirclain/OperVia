@@ -5,9 +5,9 @@ export default function Footer() {
     <footer className="py-10 border-t border-gray-100 bg-white">
       <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
-          <div className="font-bold text-slate-900 text-lg">Resolvia</div>
+          <div className="font-bold text-slate-900 text-lg">Opervia</div>
           <div className="text-sm text-gray-400 mt-0.5">Soluciones tecnológicas para negocios</div>
-          <div className="text-xs text-gray-400 mt-2">&copy; {new Date().getFullYear()} Resolvia. Todos los derechos reservados.</div>
+          <div className="text-xs text-gray-400 mt-2">&copy; {new Date().getFullYear()} Opervia. Todos los derechos reservados.</div>
         </div>
         <div className="flex items-center gap-5">
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-sm text-accent hover:underline">WhatsApp</a>
